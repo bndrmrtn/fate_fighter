@@ -1,0 +1,24 @@
+package views
+
+import "github.com/bndrmrtn/fate_fighter/ui/layouts"
+import "github.com/bndrmrtn/fate_fighter/ui/components"
+
+var homeLinks = []components.NavLink {
+     components.NavLink{
+          Title: "Főoldal",
+          Href: "/",
+     },
+     components.NavLink{
+          Title: "Rólunk",
+          Href: "/about",
+     },
+}
+
+templ Home() {
+     @layouts.Base() {
+          @components.Navbar(homeLinks)
+          <div class="text-lg">
+               Hi
+          </div>
+     }
+}

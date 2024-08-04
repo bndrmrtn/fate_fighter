@@ -1,15 +1,26 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	"log"
 
 	"github.com/a-h/templ"
+	"github.com/bndrmrtn/fate_fighter/database"
+	"github.com/bndrmrtn/fate_fighter/pkg/configs"
 	"github.com/bndrmrtn/fate_fighter/ui/views"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
 )
 
 func main() {
+	err := configs.LoadEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	database.MustConnect()
+
 	app := fiber.New()
 
 	app.Static("/", "./public")

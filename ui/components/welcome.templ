@@ -1,0 +1,23 @@
+package components
+
+import "github.com/bndrmrtn/fate_fighter/pkg/client"
+
+type WelcomeProps struct {
+     ServerHostname string
+     ServerAddress string
+}
+
+templ Welcome(c *client.Context, props *WelcomeProps) {
+     <section class="w-full h-screen overflow-hidden flex bg">
+          <div class="m-auto z-10 w-full px-2 sm:px-0 sm:w-auto">
+               <h1 class="text-7xl inter text-center">
+                    <span class="text-red-400">Hungarian</span>
+                    <br/>
+                    Vypers Gaming
+               </h1>
+               <div class="w-min mx-auto px-5 py-2 rounded-xl border-2 border-dashed border-green-400 mt-3">
+                    <p class="font-bold inter">{ props.ServerAddress }</p>
+               </div>
+          </div>
+     </section>
+}

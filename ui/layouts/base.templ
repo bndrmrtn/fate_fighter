@@ -1,19 +1,23 @@
 package layouts
 
-templ Base() {
+import "github.com/bndrmrtn/fate_fighter/pkg/client"
+
+templ Base(c *client.Context) {
      <!doctype html>
-     <html>
+     <html class={ templ.KV("dark", c.DarkMode) }>
           <head>
                <meta charset="utf-8" />
                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                <title>Hungarian Vypers Gaming</title>
                <link rel="stylesheet" href="/main.css" />
+               <script src="/main.js" defer="defer"></script>
+               <script src="https://unpkg.com/htmx.org@2.0.1"></script>
                <!-- Temporary No Cache -->
                <meta http-equiv="cache-control" content="no-cache">
                <meta http-equiv="expires" content="0">
                <meta http-equiv="pragma" content="no-cache">
           </head>
-          <body class="bg-gray-500 text-white">
+          <body class="bg-white text-black dark:bg-dark dark:text-white roboto">
                { children... }
           </body>
      </html>

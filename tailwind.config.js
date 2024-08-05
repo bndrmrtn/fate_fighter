@@ -4,9 +4,15 @@ module.exports = {
     "./ui/**/*.{html,js,templ}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        dark: '#1d1d27',
+      }
+    },
   },
-  plugins: [],
-  darkMode: ['selector', '[data-mode="dark"]']
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
+  darkMode: ['selector', '.dark']
 }
 

@@ -1,24 +1,29 @@
 package views
 
-import "github.com/bndrmrtn/fate_fighter/ui/layouts"
-import "github.com/bndrmrtn/fate_fighter/ui/components"
+import (
+     "github.com/bndrmrtn/fate_fighter/ui/layouts"
+     "github.com/bndrmrtn/fate_fighter/ui/components"
+	"github.com/bndrmrtn/fate_fighter/pkg/client"
+)
 
 var homeLinks = []components.NavLink {
-     components.NavLink{
+     {
           Title: "Főoldal",
           Href: "/",
      },
-     components.NavLink{
+     {
           Title: "Rólunk",
           Href: "/about",
      },
 }
 
-templ Home() {
-     @layouts.Base() {
-          @components.Navbar(homeLinks)
-          <div class="text-lg">
-               Hi
-          </div>
+templ Home(c *client.Context, hostname, address string) {
+     @layouts.Base(c) {
+          @components.Navbar(c, homeLinks)
+          @components.Welcome(c, &components.WelcomeProps{
+               ServerHostname: hostname,
+               ServerAddress: address,
+          })
+          <p>Hi</p>
      }
 }

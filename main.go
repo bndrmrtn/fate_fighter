@@ -1,16 +1,15 @@
 package main
 
 import (
-	"context"
-	"fmt"
 	"log"
+	"time"
 
-	"github.com/a-h/templ"
-	"github.com/bndrmrtn/fate_fighter/database"
-	"github.com/bndrmrtn/fate_fighter/pkg/configs"
-	"github.com/bndrmrtn/fate_fighter/ui/views"
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/adaptor"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+
+	"github.com/bndrmrtn/fate_fighter/database"
+	"github.com/bndrmrtn/fate_fighter/handlers"
+	"github.com/bndrmrtn/fate_fighter/pkg/configs"
 )
 
 func main() {
@@ -23,11 +22,13 @@ func main() {
 
 	app := fiber.New()
 
-	app.Static("/", "./public")
+	app.Static("/", "./public", fiber.Static{
+		CacheDuration: 0 * time.Second,
+	})
 
-	component := views.Home()
+	app.Use(logger.New())
+	app.Get("/", handlers.Home.Index)
+	app.Post("/dark-mode/:enabled<bool>", handlers.Home.ToggleDarkMode)
 
-	app.Get("/", adaptor.HTTPHandler(templ.Handler(component)))
-
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":8001"))
 }

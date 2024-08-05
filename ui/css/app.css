@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,700;1,14..32,700&display=swap');
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nav-blur {
+  background-color: #ffffffa1;
+  transition: background-color .15s ease 0s,transform .15s ease 0s,-webkit-backdrop-filter .15s ease 0s;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+.dark .nav-blur {
+  background-color: #1d1d27a1!important;
+}
+
+.bg {
+  background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 960 540' width='960' height='540' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Crect x='0' y='0' width='960' height='540' fill='%231d1d27'%3E%3C/rect%3E%3Cpath d='M0 397L22.8 405.7C45.7 414.3 91.3 431.7 137 439.3C182.7 447 228.3 445 274 435.8C319.7 426.7 365.3 410.3 411.2 412.3C457 414.3 503 434.7 548.8 446C594.7 457.3 640.3 459.7 686 458C731.7 456.3 777.3 450.7 823 451.8C868.7 453 914.3 461 937.2 465L960 469L960 541L937.2 541C914.3 541 868.7 541 823 541C777.3 541 731.7 541 686 541C640.3 541 594.7 541 548.8 541C503 541 457 541 411.2 541C365.3 541 319.7 541 274 541C228.3 541 182.7 541 137 541C91.3 541 45.7 541 22.8 541L0 541Z' fill='%233d278e' stroke-linecap='round' stroke-linejoin='miter'%3E%3C/path%3E%3C/svg%3E");
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
